@@ -1,9 +1,9 @@
 {
+  "name": "Pet-Tech Connect",
+  "description": "Plataforma web de vanguardia que combina servicios de cuidado de mascotas con funcionalidades avanzadas de inteligencia artificial para dueños y socios comerciales.",
   "requestFramePermissions": [
-    "microphone",
-    "camera"
+    "camera",
+    "microphone"
   ],
-  "name": "Sistema Operativo Comercial (SOC)",
-  "description": "",
   "prompt": ""
 }

@@ -1,158 +1,201 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sistema Operativo Comercial</title>
-    <link rel="manifest" href="/manifest.json" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              'primary': {
-                '50': '#eef2ff',
-                '100': '#e0e7ff',
-                '200': '#c7d2fe',
-                '300': '#a5b4fc',
-                '400': '#818cf8',
-                '500': '#6366f1',
-                '600': '#4f46e5',
-                '700': '#4338ca',
-                '800': '#3730a3',
-                '900': '#312e81',
-                '950': '#1e1b4b'
-              },
-              'accent': {
-                '50': '#f0fdfa',
-                '100': '#ccfbf1',
-                '200': '#99f6e4',
-                '300': '#5eead4',
-                '400': '#2dd4bf',
-                '500': '#14b8a6',
-                '600': '#0d9488',
-                '700': '#0f766e',
-                '800': '#115e59',
-                '900': '#134e4a',
-                '950': '#042f2e'
-              }
-            },
-            borderRadius: {
-              'xl': '0.75rem',
-            },
-            animation: {
-              'fade-in': 'fadeIn 0.5s ease-out forwards',
-              'slide-in-up': 'slideInUp 0.5s ease-out forwards',
-            },
-            keyframes: {
-              fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
-              },
-              slideInUp: {
-                '0%': { transform: 'translateY(20px)', opacity: '0' },
-                '100%': { transform: 'translateY(0)', opacity: '1' },
-              },
-            },
-          }
-        }
-      }
-    </script>
-    <style>
-      @media print {
-          body * {
-              visibility: hidden;
-              background: white !important;
-              box-shadow: none !important;
-          }
-          .printable-area, .printable-area * {
-              visibility: visible;
-          }
-          .printable-area {
-              position: absolute;
-              left: 0;
-              top: 0;
-              width: 100%;
-          }
-          .no-print {
-              display: none !important;
-          }
+    
+    <!-- SEO & Metadata -->
+    <title>Pet-Tech Connect - Cuidado de Mascotas con IA y Diseño Premium</title>
+    <meta name="description" content="Pet-Tech Connect: La plataforma líder en cuidado de mascotas, con autolavado, escáner de razas por IA, generador de arte, y más. Un ecosistema de bienestar para tu mascota con un diseño interactivo y moderno.">
+    <meta name="keywords" content="cuidado de mascotas, IA, autolavado de perros, inteligencia artificial, pet-tech, escáner de razas, generador de arte para mascotas, bienestar animal, baño para perros, tecnología para mascotas">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pet-tech-connect.com/">
+    <meta property="og:title" content="Pet-Tech Connect - La Revolución en el Cuidado de Mascotas">
+    <meta property="og:description" content="Diseño interactivo y tecnología de punta para el bienestar de tu mascota.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=1280&q=80">
 
-          /* Enhanced ticket print styles */
-          .ticket-print {
-            font-family: 'Courier New', monospace !important;
-            font-size: 9pt !important;
-            line-height: 1.4 !important;
-            width: 72mm !important; /* Standard thermal printer width */
-            color: black !important;
-          }
-          .ticket-print .p-10 { padding: 4px !important; }
-          .ticket-print .p-8 { padding: 4px !important; }
-          .ticket-print .p-4 { padding: 2px !important; }
-          .ticket-print .p-2 { padding: 1px !important; }
-          .ticket-print .text-4xl { font-size: 16pt !important; }
-          .ticket-print .text-3xl { font-size: 14pt !important; }
-          .ticket-print .text-lg { font-size: 10pt !important; }
-          .ticket-print .text-base { font-size: 9pt !important; }
-          .ticket-print .text-sm { font-size: 8pt !important; }
-          .ticket-print .text-xs { font-size: 7pt !important; }
-          .ticket-print .mb-8 { margin-bottom: 12px !important; }
-          .ticket-print .mb-6 { margin-bottom: 10px !important; }
-          .ticket-print .mb-4 { margin-bottom: 8px !important; }
-          .ticket-print .my-2 { margin-top: 4px !important; margin-bottom: 4px !important; }
-          .ticket-print .mt-1 { margin-top: 2px !important; }
-          .ticket-print .mt-2 { margin-top: 4px !important; }
-          .ticket-print .mt-4 { margin-top: 8px !important; }
-          .ticket-print .mt-8 { margin-top: 16px !important; }
-          .ticket-print .grid, .ticket-print .flex { display: block !important; } 
-          .ticket-print .w-1\/2, .ticket-print .w-2\/5 { width: 100% !important; }
-          .ticket-print .text-right { text-align: left !important; }
-          .ticket-print table, .ticket-print thead, .ticket-print tbody, .ticket-print tr, .ticket-print th, .ticket-print td {
-            display: block !important;
-            width: 100% !important;
-          }
-           .ticket-print thead { display: none !important; }
-           .ticket-print td { display: flex !important; justify-content: space-between !important; padding: 1px 0 !important; }
-           .ticket-print tr { border-bottom: 1px dashed #666; padding: 2px 0 !important; }
-           .ticket-print .font-bold { font-weight: normal !important; }
-           .ticket-print .font-semibold { font-weight: normal !important; }
-      }
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://pet-tech-connect.com/">
+    <meta property="twitter:title" content="Pet-Tech Connect - La Revolución en el Cuidado de Mascotas">
+    <meta property="twitter:description" content="Diseño interactivo y tecnología de punta para el bienestar de tu mascota.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=1280&q=80">
+    
+    <!-- Performance -->
+    <link rel="preload" href="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=1920&q=80" as="image">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            scroll-behavior: smooth;
+        }
+        
+        /* Scroll Triggered Animations */
+        .scroll-animate {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-animate.fade-in {
+            opacity: 1;
+        }
+        .scroll-animate.fade-in-up {
+            transform: translateY(30px);
+        }
+        .scroll-animate.fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .is-visible {
+           opacity: 1;
+        }
+
+        /* Hero Image Ken Burns Effect */
+        .ken-burns {
+            animation: kenburns 20s ease-out both infinite;
+        }
+        @keyframes kenburns {
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.1) translate(-5px, 5px); }
+            100% { transform: scale(1) translate(0, 0); }
+        }
+
+        /* Aurora background for AI section */
+        .aurora-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        .aurora-bg::before, .aurora-bg::after {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background-image: radial-gradient(circle, rgba(79, 70, 229, 0.4) 0%, rgba(79, 70, 229, 0) 60%);
+            border-radius: 50%;
+            z-index: 0;
+            animation: aurora-move 30s infinite linear;
+            will-change: transform;
+        }
+        .aurora-bg::before { top: -40%; left: -20%; }
+        .aurora-bg::after { bottom: -40%; right: -20%; animation-delay: -15s; background-image: radial-gradient(circle, rgba(34, 211, 238, 0.3) 0%, rgba(34, 211, 238, 0) 60%); }
+        @keyframes aurora-move {
+            0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+            25% { transform: translateX(50px) translateY(100px) rotate(90deg); }
+            50% { transform: translateX(0) translateY(200px) rotate(180deg); }
+            75% { transform: translateX(-50px) translateY(100px) rotate(270deg); }
+        }
+
+        /* Scroll down arrow */
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
     </style>
-  <script type="importmap">
+<script type="importmap">
 {
   "imports": {
-    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
-    "react/": "https://esm.sh/react@^19.1.1/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.13.0",
     "react": "https://esm.sh/react@^19.1.1",
-    "@google/genai": "https://esm.sh/@google/genai@^1.12.0",
-    "react-dropzone": "https://esm.sh/react-dropzone@^14.3.8",
-    "papaparse": "https://esm.sh/papaparse@5.4.1",
-    "chart.js": "https://esm.sh/chart.js@^4.4.3",
-    "react-chartjs-2": "https://esm.sh/react-chartjs-2@^5.2.0",
-    "jspdf": "https://esm.sh/jspdf@^2.5.1",
-    "jspdf-autotable": "https://esm.sh/jspdf-autotable@^3.8.2",
-    "xlsx": "https://esm.sh/xlsx@^0.18.5",
-    "html2canvas": "https://esm.sh/html2canvas@^1.4.1"
+    "react-dom/client": "https://esm.sh/react-dom@^19.1.1/client",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.8.0",
+    "recharts": "https://esm.sh/recharts@^3.1.2",
+    "uuid": "https://esm.sh/uuid@^11.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "react/": "https://esm.sh/react@^19.1.1/"
   }
+}
+</script>
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Pet-Tech Connect",
+  "image": "https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=1280&q=80",
+  "url": "https://pet-tech-connect.com/",
+  "telephone": "+1-555-PET-TECH",
+  "description": "Pet-Tech Connect es la plataforma líder en cuidado de mascotas, combinando tecnología de punta como autolavado inteligente, escáner de razas por IA y un asistente virtual para ofrecer una experiencia inigualable a dueños y mascotas.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Siempreviva 742",
+    "addressLocality": "Springfield",
+    "addressRegion": "CA",
+    "postalCode": "90210",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 34.052235,
+    "longitude": -118.243683
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "servesCuisine": "",
+  "priceRange": "$$",
+  "servesCuisine": "No aplica",
+  "hasOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Autolavado Básico para Perros"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Tratamiento Premium para Perros"
+      }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Experiencia Spa para Perros"
+      }
+    }
+  ]
 }
 </script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-slate-100 dark:bg-neutral-950">
+<body>
     <div id="root"></div>
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').then(registration => {
-            console.log('SW registered: ', registration);
-          }).catch(registrationError => {
-            console.log('SW registration failed: ', registrationError);
-          });
-        });
-      }
-    </script>
     <script type="module" src="/index.tsx"></script>
-  </body>
+</body>
 </html>
