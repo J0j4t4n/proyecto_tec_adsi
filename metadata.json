@@ -1,0 +1,9 @@
+{
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ],
+  "name": "Sistema Operativo Comercial (SOC)",
+  "description": "",
+  "prompt": ""
+}

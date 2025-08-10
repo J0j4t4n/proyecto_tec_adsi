@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sistema Operativo Comercial</title>
+    <link rel="manifest" href="/manifest.json" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'primary': {
+                '50': '#eef2ff',
+                '100': '#e0e7ff',
+                '200': '#c7d2fe',
+                '300': '#a5b4fc',
+                '400': '#818cf8',
+                '500': '#6366f1',
+                '600': '#4f46e5',
+                '700': '#4338ca',
+                '800': '#3730a3',
+                '900': '#312e81',
+                '950': '#1e1b4b'
+              },
+              'accent': {
+                '50': '#f0fdfa',
+                '100': '#ccfbf1',
+                '200': '#99f6e4',
+                '300': '#5eead4',
+                '400': '#2dd4bf',
+                '500': '#14b8a6',
+                '600': '#0d9488',
+                '700': '#0f766e',
+                '800': '#115e59',
+                '900': '#134e4a',
+                '950': '#042f2e'
+              }
+            },
+            borderRadius: {
+              'xl': '0.75rem',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'slide-in-up': 'slideInUp 0.5s ease-out forwards',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideInUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      @media print {
+          body * {
+              visibility: hidden;
+              background: white !important;
+              box-shadow: none !important;
+          }
+          .printable-area, .printable-area * {
+              visibility: visible;
+          }
+          .printable-area {
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100%;
+          }
+          .no-print {
+              display: none !important;
+          }
+
+          /* Enhanced ticket print styles */
+          .ticket-print {
+            font-family: 'Courier New', monospace !important;
+            font-size: 9pt !important;
+            line-height: 1.4 !important;
+            width: 72mm !important; /* Standard thermal printer width */
+            color: black !important;
+          }
+          .ticket-print .p-10 { padding: 4px !important; }
+          .ticket-print .p-8 { padding: 4px !important; }
+          .ticket-print .p-4 { padding: 2px !important; }
+          .ticket-print .p-2 { padding: 1px !important; }
+          .ticket-print .text-4xl { font-size: 16pt !important; }
+          .ticket-print .text-3xl { font-size: 14pt !important; }
+          .ticket-print .text-lg { font-size: 10pt !important; }
+          .ticket-print .text-base { font-size: 9pt !important; }
+          .ticket-print .text-sm { font-size: 8pt !important; }
+          .ticket-print .text-xs { font-size: 7pt !important; }
+          .ticket-print .mb-8 { margin-bottom: 12px !important; }
+          .ticket-print .mb-6 { margin-bottom: 10px !important; }
+          .ticket-print .mb-4 { margin-bottom: 8px !important; }
+          .ticket-print .my-2 { margin-top: 4px !important; margin-bottom: 4px !important; }
+          .ticket-print .mt-1 { margin-top: 2px !important; }
+          .ticket-print .mt-2 { margin-top: 4px !important; }
+          .ticket-print .mt-4 { margin-top: 8px !important; }
+          .ticket-print .mt-8 { margin-top: 16px !important; }
+          .ticket-print .grid, .ticket-print .flex { display: block !important; } 
+          .ticket-print .w-1\/2, .ticket-print .w-2\/5 { width: 100% !important; }
+          .ticket-print .text-right { text-align: left !important; }
+          .ticket-print table, .ticket-print thead, .ticket-print tbody, .ticket-print tr, .ticket-print th, .ticket-print td {
+            display: block !important;
+            width: 100% !important;
+          }
+           .ticket-print thead { display: none !important; }
+           .ticket-print td { display: flex !important; justify-content: space-between !important; padding: 1px 0 !important; }
+           .ticket-print tr { border-bottom: 1px dashed #666; padding: 2px 0 !important; }
+           .ticket-print .font-bold { font-weight: normal !important; }
+           .ticket-print .font-semibold { font-weight: normal !important; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "@google/genai": "https://esm.sh/@google/genai@^1.12.0",
+    "react-dropzone": "https://esm.sh/react-dropzone@^14.3.8",
+    "papaparse": "https://esm.sh/papaparse@5.4.1",
+    "chart.js": "https://esm.sh/chart.js@^4.4.3",
+    "react-chartjs-2": "https://esm.sh/react-chartjs-2@^5.2.0",
+    "jspdf": "https://esm.sh/jspdf@^2.5.1",
+    "jspdf-autotable": "https://esm.sh/jspdf-autotable@^3.8.2",
+    "xlsx": "https://esm.sh/xlsx@^0.18.5",
+    "html2canvas": "https://esm.sh/html2canvas@^1.4.1"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-100 dark:bg-neutral-950">
+    <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('SW registered: ', registration);
+          }).catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+        });
+      }
+    </script>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
